@@ -1,11 +1,13 @@
 <?php
 
+include APPPATH . 'dto/About_Us_DTO.php';
+include APPPATH . 'models/core/Base_Model.php';
+
 class About_Us_Model extends \core\Base_Model{
 
     private $aboutUsDescription1;
     private $aboutUsDescription2;
     private $aboutUsDescription3;
-    private $principles;
 
     public function __construct(){
         log_message('info','About_Us_Model constructor called');
@@ -25,7 +27,6 @@ class About_Us_Model extends \core\Base_Model{
             aboutUsDescription1 = .$this->aboutUsDescription1.\n
             aboutUsDescription2 = .$this->aboutUsDescription2.\n
             aboutUsDescription3 = .$this->aboutUsDescription3.\n
-            principles = .$this->principles.\n
         ";
     }
 
@@ -77,19 +78,26 @@ class About_Us_Model extends \core\Base_Model{
         return $this->aboutUsDescription3;
     }
 
-    /**
-     * @param mixed $principles
-     */
-    public function setPrinciples($principles)
-    {
-        $this->principles = $principles;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPrinciples()
-    {
-        return $this->principles;
+    public function fetchAboutUs(){
+        $query = $this->db->query("SELECT * FROM aaa_consultants.about_us WHERE aaa_consultants.about_us.is_deleted = FALSE AND aaa_consultants.about_us.is_approved = TRUE AND aaa_consultants.about_us.ui_visible = TRUE");
+        $row = $query->row();
+        $aboutUsDTO = null;
+        if(isset($row)){
+            $aboutUsDTO = new \application\dto\About_Us_DTO();
+            $aboutUsDTO->setId($row->id);
+            $aboutUsDTO->setCreatedBy($row->created_by);
+            $aboutUsDTO->setCreatedDate($row->created_date);
+            $aboutUsDTO->setLastUpdatedBy($row->last_updated_by);
+            $aboutUsDTO->setLastUpdatedDate($row->last_updated_date);
+            $aboutUsDTO->setIsDeleted($row->is_deleted);
+            $aboutUsDTO->setIsApproved($row->is_approved);
+            $aboutUsDTO->setUiVisible($row->ui_visible);
+            $aboutUsDTO->setModuleName($row->module_name);
+            $aboutUsDTO->setModuleDescription($row->module_description);
+            $aboutUsDTO->setAboutUsDescription1($row->about_us_description_1);
+            $aboutUsDTO->setAboutUsDescription2($row->about_us_description_2);
+            $aboutUsDTO->setAboutUsDescription3($row->about_us_description_3);
+        }
+        return $aboutUsDTO;
     }
 }

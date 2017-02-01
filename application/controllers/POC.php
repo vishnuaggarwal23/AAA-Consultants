@@ -11,13 +11,13 @@ class POC extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('pocModel');
+        $this->load->model('about_Us_Principles_Model');
         $this->load->helper('url_helper');
     }
 
     public function index()
     {
-        $data['news'] = $this->pocModel->getNews();
+        $data['aboutUsPrinciples'] = $this->about_Us_Principles_Model->fetchAboutUsPrinciples();
         $data['title'] = 'Models POC';
 
         $this->load->view('templates/header', $data);

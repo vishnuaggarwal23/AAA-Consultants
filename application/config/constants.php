@@ -89,5 +89,12 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
  * User Defined Constants
  * */
 define('POC_TABLE','poc');
+define('SERVICES_TABLE', 'services');
+define('PRACTICES_TABLE', 'practices');
+define('ABOUT_US_TABLE', 'about_us');
+define('ABOUT_US_PRINCIPLES_TABLE', 'about_us_principles');
 
 define('SERVICES_MODULE','services');
+define('PRACTICES_MODULE','practices');
+define('ABOUT_US_MODULE','about_us');
+define('ABOUT_US_PRINCIPLES_MODULE','about_us_principles');
