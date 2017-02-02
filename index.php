@@ -305,6 +305,10 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
+    define('BASEURI','AAA-Consultants/');
+    define('ASSETSPATH', BASEURI.APPPATH);
+
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE

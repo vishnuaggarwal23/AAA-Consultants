@@ -1,6 +1,4 @@
-includes the following code:
-
-<em>&copy; 2015</em>
+<em>&copy; 2017</em>
 </body>
 </html>
 

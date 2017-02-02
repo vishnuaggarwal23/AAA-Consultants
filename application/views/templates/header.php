@@ -1,7 +1,13 @@
 <html>
 <head>
-    <title>CodeIgniter Tutorial</title>
+    <title>
+        <?php echo $title; ?>
+    </title>
 </head>
 <body>
 
-<h1><?php echo $title; ?></h1>
+<?php echo $moduleImage;?>
+<?php echo $this->config->item('base_url').'/assets/images/logo.png';?>
+
+<img src="<?php $moduleImage ?>" alt="*******"/>
+<img src="../../../assets/images/logo.png" alt="*******"/>
